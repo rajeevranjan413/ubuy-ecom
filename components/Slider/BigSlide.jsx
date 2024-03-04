@@ -43,16 +43,14 @@ Fancybox.bind('[data-fancybox="gallery"]', {
 
 
 const BigSlide = (props) => {
+  console.log(props.key)
   return (
-   
+ 
     <div className='w-[400px] h-[400px] m-auto '>
-    <a href={props.url} data-fancybox="gallery">
-      <img className='w-full h-full object-contain' src={props.url } />
-    </a>
-  </div>
-
-
-
+      <a href={props.url} data-fancybox="gallery">
+        <img className='w-full h-full object-contain' src={props.url } />
+      </a>
+    </div>
    
   )
 }

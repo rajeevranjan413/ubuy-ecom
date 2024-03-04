@@ -1,23 +1,29 @@
 "use client"
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { FaHeart, FaFacebookF } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-
-// import { IoIosArrowForward, IoIosArrowBack, IoMdSkipBackward } from "react-icons/io";
-
 import React, { useState, useEffect, useRef } from "react";
+
 import Slider from "react-slick";
 import BigSlide from "./BigSlide";
 import SmallSlide from "./SmallSlide";
 
+import { FaHeart, FaFacebookF } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
-let url=["https://m.media-amazon.com/images/I/515B5CoDdWL._AC_SL1000_.jpg","https://m.media-amazon.com/images/I/51eJbFQWe4L._AC_SL1000_.jpg","https://m.media-amazon.com/images/I/61IDhrk0deL._AC_SL1000_.jpg","https://m.media-amazon.com/images/I/61BEhzZ8l8L._AC_SL1000_.jpg","https://m.media-amazon.com/images/I/61piD8VG03L._AC_SL1000_.jpg","https://m.media-amazon.com/images/I/71pFJ3+HxkL._AC_SL1000_.jpg"]
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+
+let video=[{
+    thumbUrl: "https://m.media-amazon.com/images/I/51eJbFQWe4L._AC_SL1000_.jpg",
+    videoUrl : "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/e1f07826-22ab-444d-b7b5-9458b28e8b5b/default.jobtemplate.mp4.480.mp4"
+}]
+
+let url=["https://m.media-amazon.com/images/I/515B5CoDdWL._AC_SL1000_.jpg","https://m.media-amazon.com/images/I/51eJbFQWe4L._AC_SL1000_.jpg","https://m.media-amazon.com/images/I/61IDhrk0deL._AC_SL1000_.jpg","https://m.media-amazon.com/images/I/61BEhzZ8l8L._AC_SL1000_.jpg","https://m.media-amazon.com/images/I/61piD8VG03L._AC_SL1000_.jpg","https://m.media-amazon.com/images/I/71pFJ3+HxkL._AC_SL1000_.jpg","https://m.media-amazon.com/images/I/51eJbFQWe4L._AC_SL1000_.jpg"]
 
 
 function SlickSlider() {
     const [nav1, setNav1] = useState(null);
     const [nav2, setNav2] = useState(null);
+ 
     let sliderRef1 = useRef(null);
     let sliderRef2 = useRef(null);
 
@@ -26,9 +32,9 @@ function SlickSlider() {
         setNav2(sliderRef2);
     }, []);
     return (
-        <div className="slider-container w-[500px] m-auto">
+        <div className="slider-container w-[500px] h-[1000px] mt-5">
             
-            <div className=" border rounded-lg border-black p-6 w-[450px] h-[526px] m-auto">
+            <div className=" border rounded-lg border-slate-300 p-6 w-[450px] h-[526px] m-auto">
 
                 <div className="product-wishlist">
                     <div className="logo flex justify-end ">
@@ -80,7 +86,7 @@ function SlickSlider() {
                     >
                     {
                         url.map((url,index)=>(
-                            <SmallSlide key={index} url={url}/>
+                            <SmallSlide ind={index} key={index} url={url}/>
                             ))
                         }
                 </Slider>
