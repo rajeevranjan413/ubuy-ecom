@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import { Fancybox } from "@fancyapps/ui";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
@@ -12,10 +13,10 @@ Fancybox.bind('[data-fancybox="gallery"]', {
       : 'toggleCover',
 
   animated: false,
-  showClass: false,
+  showClass: false, 
   hideClass: false,
 
-  Hash: false,
+  Hash: true,
   Thumbs: false,
 
   Toolbar: {
@@ -43,16 +44,21 @@ Fancybox.bind('[data-fancybox="gallery"]', {
 
 
 const BigSlide = (props) => {
-  console.log(props.key)
-  return (
  
+  return (
+    
     <div className='w-[400px] h-[400px] m-auto '>
-      <a href={props.url} data-fancybox="gallery">
-        <img className='w-full h-full object-contain' src={props.url } />
+      <a data-slug={`a${props.ind}`} href={props.url} data-fancybox="gallery">
+    
+          <img className='w-full h-full object-contain' src={props.url } />
+    
       </a>
     </div>
    
   )
 }
+
+
+
 
 export default BigSlide
